@@ -15,7 +15,7 @@
 	"containers": [
 		{
 			"class_name": "SearxngContainer",
-			"image": "./Dockerfile",
+			"image": "./container/Dockerfile",
 			"instance_type": "standard-4",
 			"rollout_step_percentage": [100],
 		},
