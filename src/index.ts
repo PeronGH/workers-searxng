@@ -1,18 +1,23 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Bind resources to your worker in `wrangler.jsonc`. After adding bindings, a type definition for the
- * `Env` object can be regenerated with `npm run cf-typegen`.
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
+import { Container, getRandom } from '@cloudflare/containers';
+
+const CONTAINER_POOL_SIZE = 20;
+
+export class SearxngContainer extends Container<Env> {
+	defaultPort = 8080;
+	sleepAfter = '10m';
+	envVars = {
+		GRANIAN_HOST: '0.0.0.0',
+		GRANIAN_PORT: '8080',
+		SEARXNG_BASE_URL: 'https://workers-searxng.workers.dev/',
+		SEARXNG_LIMITER: 'false',
+		SEARXNG_PUBLIC_INSTANCE: 'false',
+	};
+}
 
 export default {
-	async fetch(): Promise<Response> {
-		return new Response('Hello World!');
+	async fetch(request, env): Promise<Response> {
+		const container = await getRandom(env.SEARXNG_CONTAINER, CONTAINER_POOL_SIZE);
+
+		return container.fetch(request);
 	},
 } satisfies ExportedHandler<Env>;
