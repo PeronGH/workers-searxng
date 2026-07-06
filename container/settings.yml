@@ -1,7 +1,7 @@
 use_default_settings: true
 
 server:
-  public_instance: true
+  image_proxy: true
   secret_key: notasecretkey
 
 search:
