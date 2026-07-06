@@ -8,3 +8,7 @@ search:
   formats:
     - html
     - json
+
+engines:
+  - name: bing
+    disabled: false
