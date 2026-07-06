@@ -2,6 +2,7 @@ import { Container, getContainer } from '@cloudflare/containers';
 
 export class SearxngContainer extends Container<Env> {
 	defaultPort = 8080;
+	sleepAfter = '24h';
 }
 
 export default {
