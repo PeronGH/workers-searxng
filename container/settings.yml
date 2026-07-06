@@ -12,3 +12,13 @@ search:
 engines:
   - name: bing
     disabled: false
+  - name: duckduckgo web
+    disabled: false
+  - name: yep
+    disabled: false
+  - name: qwant
+    disabled: false
+  - name: yandex
+    disabled: false
+  - name: mojeek
+    disabled: false
