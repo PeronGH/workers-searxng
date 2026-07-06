@@ -8,6 +8,13 @@ export class SearxngContainer extends Container<Env> {
 export default {
 	async fetch(request, env): Promise<Response> {
 		const url = new URL(request.url);
+
+		if (url.protocol === 'http:') {
+			url.protocol = 'https:';
+
+			return Response.redirect(url.toString(), 308);
+		}
+
 		const container = getContainer(env.SEARXNG_CONTAINER, `${url.origin}/${request.cf?.colo}`);
 
 		await container.start({
