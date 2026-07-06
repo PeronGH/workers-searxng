@@ -1,6 +1,7 @@
 use_default_settings: true
 
 server:
+  public_instance: true
   secret_key: notasecretkey
 
 search:
