@@ -14,12 +14,14 @@ engines:
     disabled: false
   - name: brave
     disabled: false
+    weight: 1.5
   - name: duckduckgo
     disabled: false
   - name: duckduckgo web
     disabled: false
   - name: google cse
     disabled: false
+    weight: 2
   - name: mojeek
     disabled: false
   - name: presearch
